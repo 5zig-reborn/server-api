@@ -1,0 +1,9 @@
+rootProject.name = 'the-5zig-mod-server'
+
+include '1.8'
+include '1.12'
+include '1.13'
+
+project(':1.8').projectDir = file('versions/1.8')
+project(':1.12').projectDir = file('versions/1.12')
+project(':1.13').projectDir = file('versions/1.13')

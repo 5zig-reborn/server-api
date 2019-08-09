@@ -14,9 +14,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class The5zigMod extends JavaPlugin {
 
-	public static final String CHANNEL = "5zig";
-	public static final String CHANNEL_REGISTER = "5zig_REG";
+	public static String CHANNEL = "the5zigmod:5zig";
+	public static final String CHANNEL_REGISTER = "the5zigmod:5zig_reg";
 	public static final int VERSION = 4;
+
+	private String version;
 
 	private static The5zigMod instance;
 	private UserManager userManager;

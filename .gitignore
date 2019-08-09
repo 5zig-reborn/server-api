@@ -3,3 +3,5 @@
 javadocs/*
 !README.md
 build/
+.gradle
+gradle.properties

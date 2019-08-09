@@ -1,5 +1,6 @@
 allprojects {
     apply plugin: 'java'
+    apply plugin: 'maven-publish'
 
     repositories {
         mavenCentral()
@@ -12,6 +13,31 @@ allprojects {
     dependencies {
         compileOnly group: 'io.netty', name: 'netty-all', version: '5.0.0.Alpha2'
         compileOnly group: 'commons-io', name: 'commons-io', version: '2.6'
+    }
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId = 'eu.5zigreborn'
+                artifactId = 'server-api'
+                version = project.name + '-3.12.6'
+
+                from components.java
+            }
+        }
+        repositories {
+            maven {
+                credentials {
+                    username nexusUsername
+                    password nexusPassword
+                }
+                if (project.version.endsWith("-SNAPSHOT")) {
+                    url "${nexusUrl}/repository/maven-snapshots"
+                } else {
+                    url "${nexusUrl}/repository/maven-releases"
+                }
+            }
+        }
     }
 }
 
